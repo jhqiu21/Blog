@@ -1,0 +1,3 @@
+# LeetCode Notes
+
+## Code Annoation
