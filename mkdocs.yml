@@ -112,6 +112,8 @@ nav:
       - 152. Maximum Product Subarray : LeetCode/101-200/152. Maximum Product Subarray.md
     - 201-300:
       - 300. Longest Increasing Subsequence : LeetCode/201-300/300. Longest Increasing Subsequence.md
+    - 401-500:
+      - 424. Longest Repeating Character Replacement : LeetCode/401-500/424. Longest Repeating Character Replacement.md  
   - Project:
     - Project/index.md
   - Blog:
