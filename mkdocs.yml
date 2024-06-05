@@ -1,19 +1,23 @@
-site_name: Tech Blog
+site_name: Blog
 site_url: https://jhqiu21.github.io/blog/
+
 theme: 
   name: material
+  plugins:
+  - blog
+  - tags
   palette:
-    - media: "(prefers-color-scheme: light)" # color scheme: light
-      scheme: default
+    #- media: "(prefers-color-scheme: light)" # color scheme: light
+    - scheme: default
       primary: custom
       accent: custom
       toggle:
         icon: octicons/sun-16
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)" # color scheme: dark
-      scheme: slate
+    #- media: "(prefers-color-scheme: dark)" # color scheme: dark
+    - scheme: slate
       primary: black
-      accent: amber
+      accent: white
       toggle:
         icon: octicons/sun-16
         name: Switch to system preference
@@ -27,14 +31,91 @@ theme:
     - navigation.path
     - content.tabs.link
     - navigation.indexes 
-    # - navigation.tabs
+    # - navigation.footer
+    - navigation.tabs
+    - toc.follow
+    - navigation.top
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - footnotes
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+  - md_in_html
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex:
+      generic: true
+  - abbr
+  - attr_list
+  - pymdownx.snippets    
+
+copyright: |
+  &copy; 2024 <a herf="https://jhqiu21.github.io/Blog/" target="_blank">Jin Hang's Tech Blog</a>
+
+extra: 
+  social: 
+    - icon: fontawesome/brands/github
+      link: https://github.com/jhqiu21
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/jinhang-qiu-417509288/
+    
+
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css   
+  - css/custom.css
+
 
 nav:
   - Hello: index.md 
   - LeetCode: 
     - LeetCode/index.md
-    - 55. Question : LeetCode/Page.md
+    - 1-100:
+      - 11. Container With Most Water : LeetCode/1-100/11. Container With Most Water.md
+      - 15. 3Sum: LeetCode/1-100/15. 3Sum.md
+      - 33. Search in Rotated Sorted Array : LeetCode/1-100/33. Search in Rotated Sorted Array.md
+      - 53. Maximum Subarray : LeetCode/1-100/53. Maximum Subarray.md
+      - 70. Climbing Stairs : LeetCode/1-100/70. Climbing Stairs.md
+      - 84. Largest Rectangle in Histogram : LeetCode/1-100/84. Largest Rectangle in Histogram.md
+    - 101-200:
+      - 152. Maximum Product Subarray : LeetCode/101-200/152. Maximum Product Subarray.md
+    - 201-300:
+      - 300. Longest Increasing Subsequence : LeetCode/201-300/300. Longest Increasing Subsequence.md
+  - Project:
+    - Project/index.md
+  - Blog:
+    - Blog/index.md
+    - 2024:
+      - Blog/2024/Page.md
 
-
-extra_css:
-  - css/custom.css
