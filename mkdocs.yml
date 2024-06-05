@@ -26,12 +26,13 @@ theme:
     - navigation.tracking
     - navigation.path
     - content.tabs.link
+    - navigation.indexes 
     # - navigation.tabs
 
 nav:
   - Hello: index.md 
-  - LeetCode: LeetCode/LeetCode.md
-    - LeetCode/LeetCode.md
+  - LeetCode: 
+    - LeetCode/index.md
     - 55. Question : LeetCode/Page.md
 
 
