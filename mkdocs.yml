@@ -30,7 +30,9 @@ theme:
 
 nav:
   - Hello: index.md 
-  - LeetCode: LeetCode/LeetCode.md
+  - LeetCode: 
+    - LeetCode/LeetCode.md
+    - 55. Question : LeetCode/Page.md
 
 
 extra_css:
