@@ -25,6 +25,7 @@ theme:
   icon:
     logo: material/earth
   features:
+    - announce.dismiss
     - navigation.instant
     - navigation.instant.progress
     - navigation.tracking
@@ -75,6 +76,10 @@ markdown_extensions:
   - abbr
   - attr_list
   - pymdownx.snippets    
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 copyright: |
   &copy; 2024 <a herf="https://jhqiu21.github.io/Blog/" target="_blank">Jin Hang's Tech Blog</a>
