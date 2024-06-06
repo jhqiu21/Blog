@@ -101,6 +101,8 @@ nav:
   - Hello: index.md 
   - LeetCode: 
     - LeetCode/index.md
+    - Methodology:
+      - Sliding Window: LeetCode/Methodology/Sliding Window.md
     - 1-100:
       - 3. Longest Substring Without Repeating Characters : LeetCode/1-100/3. Longest Substring Without Repeating Characters.md
       - 11. Container With Most Water : LeetCode/1-100/11. Container With Most Water.md
