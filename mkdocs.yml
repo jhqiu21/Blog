@@ -118,6 +118,7 @@ nav:
       - 84. Largest Rectangle in Histogram : LeetCode/1-100/84. Largest Rectangle in Histogram.md
     - 101-200:
       - 152. Maximum Product Subarray : LeetCode/101-200/152. Maximum Product Subarray.md
+      - 200. Number of Islands: LeetCode/101-200/200. Number of Islands.md
     - 201-300:
       - 300. Longest Increasing Subsequence : LeetCode/201-300/300. Longest Increasing Subsequence.md
     - 401-500:
