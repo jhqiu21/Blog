@@ -32,7 +32,7 @@ theme:
     - navigation.path
     - content.tabs.link
     - navigation.indexes 
-    # - navigation.footer
+    - navigation.footer # Add prev and next link in the footer
     - navigation.tabs
     - toc.follow
     - navigation.top
