@@ -27,7 +27,7 @@ Welcome to my personal tech blog! This website serves as a repo. for my journey 
     This is my Linkedin profile!
 
 
-    [:octicons-arrow-right-24: Reference](https://www.linkedin.com/in/jinhang-qiu-417509288/)
+    [:octicons-arrow-right-24: Linkedin Profile](https://www.linkedin.com/in/jinhang-qiu-417509288/)
 
 -   :material-github:{ .lg .middle } __Github__
 
@@ -35,7 +35,7 @@ Welcome to my personal tech blog! This website serves as a repo. for my journey 
 
     This is my Github profile!
 
-    [:octicons-arrow-right-24: Customization](https://github.com/jhqiu21)
+    [:octicons-arrow-right-24: Github](https://github.com/jhqiu21)
 </div>
 
 
