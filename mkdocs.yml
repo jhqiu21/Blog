@@ -1,7 +1,7 @@
 site_name: Blog
-site_url: https://jhqiu21.github.io/blog/
+site_url: https://jhqiu21.github.io/blog
 repo_name: jhqiu21/Blog
-repo_url: https://github.com/jhqiu21/Blog/
+repo_url: https://github.com/jhqiu21/Blog
 theme: 
   name: material
   plugins:
