@@ -34,7 +34,6 @@ theme:
     - navigation.path
     - content.tabs.link
     - navigation.indexes 
-    - navigation.footer # Add prev and next link in the footer
     - navigation.tabs
     - toc.follow
     - navigation.top
@@ -109,8 +108,11 @@ nav:
   - Project:
     - Project/index.md
     - Project/Gitlet.md
+  - Research:
+    - Research/index.md
   - Blog:
     - Blog/index.md
     - 2024:
       - Blog/2024/Page.md
+  - LeetCode Notes: https://jhqiu21.github.io/LeetCode/
 
