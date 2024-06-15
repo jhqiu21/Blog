@@ -24,7 +24,7 @@ theme:
         name: Switch to system preference
   language: en
   icon:
-    logo: material/earth
+    logo: fontawesome/solid/earth-americas
     repo: fontawesome/brands/git-alt
   features:
     - announce.dismiss
