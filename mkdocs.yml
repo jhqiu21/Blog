@@ -1,7 +1,7 @@
 site_name: Blog
 site_url: https://jhqiu21.github.io/blog/
 repo_name: jhqiu21/Blog
-repo_url: https://github.com/jhqiu21/Blog
+repo_url: https://github.com/jhqiu21/Blog/
 theme: 
   name: material
   plugins:
@@ -106,29 +106,6 @@ extra_css:
 
 nav:
   - Hello: index.md 
-  - LeetCode: 
-    - LeetCode/index.md
-    - Methodology:
-      - Binary Search: LeetCode/Methodology/Binary_Search.md
-      - Sliding Window: LeetCode/Methodology/Sliding Window.md
-    - 1-100:
-      - 3. Longest Substring Without Repeating Characters : LeetCode/1-100/3. Longest Substring Without Repeating Characters.md
-      - 11. Container With Most Water : LeetCode/1-100/11. Container With Most Water.md
-      - 15. 3Sum: LeetCode/1-100/15. 3Sum.md
-      - 19. Remove Nth Node From End of List: LeetCode/1-100/19. Remove Nth Node From End of List.md
-      - 33. Search in Rotated Sorted Array : LeetCode/1-100/33. Search in Rotated Sorted Array.md
-      - 53. Maximum Subarray : LeetCode/1-100/53. Maximum Subarray.md
-      - 70. Climbing Stairs : LeetCode/1-100/70. Climbing Stairs.md
-      - 84. Largest Rectangle in Histogram : LeetCode/1-100/84. Largest Rectangle in Histogram.md
-    - 101-200:
-      - 105. Construct Binary Tree from Preorder and Inorder Traversal: LeetCode/101-200/105. Construct Binary Tree from Preorder and Inorder Traversal.md
-      - 152. Maximum Product Subarray : LeetCode/101-200/152. Maximum Product Subarray.md
-      - 169. Majority Element: LeetCode/101-200/169. Majority Element.md
-      - 200. Number of Islands: LeetCode/101-200/200. Number of Islands.md
-    - 201-300:
-      - 300. Longest Increasing Subsequence : LeetCode/201-300/300. Longest Increasing Subsequence.md
-    - 401-500:
-      - 424. Longest Repeating Character Replacement : LeetCode/401-500/424. Longest Repeating Character Replacement.md  
   - Project:
     - Project/index.md
     - Project/Gitlet.md
