@@ -15,12 +15,15 @@
 
     [:octicons-arrow-right-24: More Details](Gitlet.md)
 
--   ![](img/ToBeContinued.png){ width="300"; height="400"}
+-   ![](img/leetcode_note.png){ width="300"; height="400"}
 
     ---
+    My Solution and Notes of LeetCode Questions. (Undergoing)
+    
 
-    New Project is on the way! 🔥
-
-    [:octicons-arrow-right-24: More Details](#)
+    [:octicons-arrow-right-24: LeetCode Notes](https://jhqiu21.github.io/LeetCode/)
 
 </div>
+
+--- 
+New Project is on the way! 🔥
