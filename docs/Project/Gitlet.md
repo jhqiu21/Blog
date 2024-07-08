@@ -36,7 +36,7 @@ Below are the basic technical skill used in this project:
     - `static <T extends Serializable> T readObject(File file, Class<T> expectedClass)`: reads in a serializable object from a file.
     - `static void writeObject(File file, Serializable obj)`: writes a serializable object to a file
 
-??? Java file IO operation
+??? IO
     There is a [Tutorial](https://www.tutorialspoint.com/java/java_files_io.htm) og IO operation in Java. 
 
 ## Structure
@@ -163,11 +163,11 @@ commit “add and rm”
 
 === "Before Commit"
 
-    111
+    ![](img/gitlet/1.png)
 
 === "After Commit"
 
-    111
+    ![](img/gitlet/2.png)
 
 
 ### `log`
@@ -192,18 +192,154 @@ Prints out the ids of all commits that have the given commit message
 
 ### `checkout`
 
+There are three cases:
+
+- `java gitlet.Main checkout -- [file name]`
+    - After `commit`, there is `f.txt` in the working directory. Call the `checkout` command to recover the file. 
+    - If the file currently tracked by commit contains `filename`, write it to the working directory
+    - If the file with the same name exists, overwrite it, if not, write it directly.
+
+- `java gitlet.Main checkout [commit id] -- [file name]`
+    - Takes the version of the file as it exists in the commit with the given `id`
+    - Puts it in the working directory, overwriting the version of the file that’s already there if there is one.
+
+- `java gitlet.Main checkout [branch name]`: switch to `[branch name]`
+
+    Before checkout, HEAD points to the latest commit of the `master` branch. 
+    
+    After checkout `other`, HEAD points to the latest commit of the `other` branch, and all the files in the working directory will become blob files included in `Commit4-B`. Then this file update process has three cases:
+
+    - Files tracked by both commit with same file name but different blobID (i.e. different content), the file in `Commit4-B` will replace the original file;
+    - Files whose file names are only tracked by `Commit4-A`, then these files will be deleted directly.
+    - Files whose file names are only tracked by `Commit4-B`, then these files will be written directly to the working directory. 
+    
+        - If a file with the same name is already in the working directory when writing directly, it means that a new 1.txt file was added to the working directory before checkout without committed.
+        - In this situation, `gitlet` does not know whether to save the newly added file or take the file in `Commit4-B` and overwrite it, then, gitlet will report an error to avoid information loss.
+
+    Change HEAD to point to `Commit4-B` and then clear the cache area.
+
+    === "Before checkout"
+
+        ![](img/gitlet/3.png)
+
+    === "After checkout"
+
+        ![](img/gitlet/4.png)
+
+
 ### `branch`
+
+- Add a new file with `branchname` in `heads` dictionary, whose content is current `commitID`, without changing HEAD pointer.
+- Only add a new branch.
 
 ### `rm-branch`
 
+- Delete a branch by deleting `branchname` file in `heads` dictionary.
+- Note that `branchname` should not be branch pointing by current `HEAD`.
+
+
 ### `reset`
+
+- Checks out all the files tracked by the given commit. Set `HEAD` pointing to specific commit id before file operation like that in `checkout branch`.
+- Clear cache area finally.
+
 
 ### `merge`
 
+Merge `branchname` to the current branch. Firstly we need to find split point, then we merge files.
+
+### Find Split Point
+
+!!! Split Point
+    The **split point** is a latest common ancestor of the current and given branch heads.
+
+We can use BFS traverse the branch from back to front, using a hash map to store their depth and commit id until encounter initial commit.
+
+Then we can get commit map of our current branch and target branch. Now, we traverse two commit map and iterately update our split id and length to find the split point id. 
+
+### Merge Files
+
+Firstly, we need to test two failure cases:
+
+=== "Fast Forward"
+    If split point commit is same with HEAD commit, which means `target branch` is in the same branch and forward than current branch, update HEAD to the head commit of `target branch`.
+
+    ![](img/gitlet/5.png)
+
+=== "Ancestor"
+    If split point commit is same with commit in `target commit`, which indicates `master` is in the same branch and behind master branch, thus we do not need to perform merge operation, simply output `Given branch is an ancestor of the current branch.` 
+
+    ![](img/gitlet/6.png)
+
+Then, when we perform merge operation, there are eight cases. Note that in each figure blow, we assume commit with different color has a file `f.txt` with different content. A white commit does not have `f.txt`:
+
+=== "1"
+
+    Any files that have been 
+
+    - modified in the given branch since the split point
+    - not modified in the current branch since the split point should be changed to their versions in the given branch (checked out from the commit at the front of the given branch). 
+
+    These files should then all be automatically staged. 
+    
+    ![](img/gitlet/7.png)
 
 
-## Persistence
+=== "2"
+
+    Any files that 
+    
+    - have been modified in the current branch 
+    - but not in the given branch since the split point 
+
+    should stay as they are.
+
+    ![](img/gitlet/8.png)
+
+=== "3"
+
+    - Any files that have been modified in both the current and given branch in the same way (i.e., both files now have the same content or were both removed) are left unchanged by the merge. 
+
+    - If a file was removed from both the current and given branch, but a file of the same name is present in the working directory, it is left alone and continues to be absent (not tracked nor staged) in the merge.
+
+    ![](img/gitlet/9.png)
+
+
+=== "4"
+
+    Any files that were not present at the split point and are present only in the current branch should remain as they are.
+
+    ![](img/gitlet/10.png)
+
+=== "5"
+
+    Any files that were not present at the split point and are present only in the given branch should be checked out and staged.
+
+    ![](img/gitlet/11.png)
+
+=== "6"
+
+    Any files present at the split point, unmodified in the current branch, and absent in the given branch should be removed (and untracked).
+
+    ![](img/gitlet/12.png)
+
+=== "7"
+
+    Any files present at the split point, unmodified in the given branch, and absent in the current branch should remain absent.
+
+    ![](img/gitlet/13.png)
+
+
+=== "8"
+    Any files modified in different ways in the current and given branches are in conflict. 
+    
+    “Modified in different ways” can mean that the contents of both are changed and different from other, or the contents of one are changed and the other file is deleted, or the file was absent at the split point and has different contents in the given and current branches. 
+    
+    In this case, replace the contents of the conflicted file with
+
+    ![](img/gitlet/14.png)
+
 
 ## Reference
+
 - [Gitlet Project Document](https://sp21.datastructur.es/materials/proj/proj2/proj2)
-- 
